@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        IS_AUTO_TRIGGERED = false;
+        IS_AUTO_TRIGGERED = true;
         userInput = null;
         target_dir= null;
     }
