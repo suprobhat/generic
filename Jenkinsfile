@@ -30,7 +30,7 @@ pipeline {
  
                     if(myParameter == ''){
                         currentBuild.result = 'FAILURE'
-                        error "Invalid branch name, end of pipeline"
+                        error "Invalid branch name, end of pipeline suprobhat"
                     }
                     else{
                         git branch: myParameter, credentialsId: 'jaehoo',
