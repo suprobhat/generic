@@ -3,12 +3,18 @@ pipeline {
   triggers {
     GenericTrigger(
      genericVariables: [
-      [key: 'ref', value: '$.ref']
+      //[key: 'pr_id', value: '$.pull_request.id'],
+      [key: 'pr_state', value: '$.pull_request.state'],
+      [key: 'repo_git_url', value: '$.pull_request.head.repo.clone_url'],
+      [key: 'pr_branch', value: '$.pull_request.head.ref'],
+      [key: 'base_branch', value: '$.pull_request.base.ref']
+      
      ],
 
-     causeString: 'Triggered on $ref',
+     //causeString: 'Triggered on $pr_id',
+     //causeString: 'Triggered on $pr_state',
 
-     token: '1234',
+     token: 'abc123',
      tokenCredentialId: '',
 
      printContributedVariables: true,
@@ -16,15 +22,20 @@ pipeline {
 
      silentResponse: false,
 
-     regexpFilterText: '$ref',
-     regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
+     //regexpFilterText: '$ref',
+     //regexpFilterText: '$pr_state',
+     //regexpFilterExpression: 'refs/heads/' + any
     )
   }
   stages {
     stage('Some step') {
       steps {
-        sh "echo $ref"
-      } 
+        //sh "echo $pr_id"
+        sh "echo $pr_state"
+        sh "echo $repo_git_url"
+        sh "echo $pr_branch"
+        sh "echo $base_branch"
+      }
     }
   }
 }
