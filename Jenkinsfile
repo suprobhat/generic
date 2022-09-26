@@ -4,7 +4,7 @@ pipeline {
     GenericTrigger(
      genericVariables: [
       //[key: 'pr_id', value: '$.pull_request.id'],
-      [key: 'pr_state', value: '$.pull_request.state'],
+      //[key: 'pr_state', value: '$.pull_request.state'],
       [key: 'repo_git_url', value: '$.pull_request.head.repo.clone_url'],
       [key: 'pr_branch', value: '$.pull_request.head.ref'],
       [key: 'base_branch', value: '$.pull_request.base.ref']
