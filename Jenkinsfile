@@ -30,15 +30,16 @@ pipeline {
   stages {
     stage('Some step') {
       steps {
-        //sh "echo $pr_id"
-        //sh "echo $pr_state"
-        sh "echo hello"
-        //sh "echo $pr_branch"
-        //sh "echo $base_branch"
+
+        sh "echo $pr_id"
+        sh "echo $pr_state"
+        sh "echo $repo_git_url"
+        sh "echo $pr_branch"
+        sh "echo $base_branch"
+
       }
     }
   }
 }
-
 
 
